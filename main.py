@@ -1,6 +1,9 @@
+import os
+
 from faker.generator import random
 from faker.proxy import Faker
 import file_operations
+from os import  makedirs
 
 
 def main():
@@ -88,6 +91,8 @@ def main():
     for index in range(len(skills)):
         for symbol in skills[index]:
             skills[index] = skills[index].replace(symbol, alphabet[symbol])
+
+    os.makedirs("cards", exist_ok=True)
 
     for card in range(10):
         person_skills = list(random.sample(skills, 3))
